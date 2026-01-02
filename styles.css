@@ -8,6 +8,14 @@
     --accent: #000000;
 }
 
+.dark-mode {
+    --bg: #111111;
+    --text: #ffffff;
+    --muted: #cccccc;
+    --border: #333333;
+    --accent: #ffffff;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -98,4 +106,23 @@ footer {
     h1 {
     font-size: 2rem;
     }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--border);
 }

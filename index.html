@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <button class="theme-toggle" id="theme-toggle">Mode sombre</button>
   <main class="container">
     <header>
       <h1>Jonathan LT</h1>
@@ -43,5 +44,28 @@
       </p>
     </footer>
   </main>
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    // Apply the current theme
+    if (currentTheme === 'dark') {
+      body.classList.add('dark-mode');
+      toggleButton.textContent = 'Mode clair';
+    } else {
+      toggleButton.textContent = 'Mode sombre';
+    }
+
+    // Toggle theme on button click
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      toggleButton.textContent = theme === 'dark' ? 'Mode clair' : 'Mode sombre';
+    });
+  </script>
 </body>
 </html>
