@@ -1,0 +1,192 @@
+/* Styles for JonathanLT website */
+
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --muted: #666666;
+    --border: #eaeaea;
+    --accent: #000000;
+}
+
+.dark-mode {
+    --bg: #111111;
+    --text: #ffffff;
+    --muted: #cccccc;
+    --border: #333333;
+    --accent: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+header {
+    margin-bottom: 80px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+section {
+    margin-bottom: 72px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+
+.project {
+    border: 1px solid var(--border);
+    padding: 24px;
+    transition: border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    border-radius: 4px;
+}
+
+.project:hover {
+    border-color: var(--accent);
+}
+
+.project-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.project-content p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.project a {
+    font-size: 0.9rem;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text);
+}
+
+.buzz-words {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+}
+
+.buzz-word {
+    font-size: 0.8rem;
+    background: var(--border);
+    color: var(--text);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+footer {
+    margin-top: 120px;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+footer a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text);
+}
+
+@media (max-width: 600px) {
+    h1 {
+    font-size: 2rem;
+    }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--border);
+}
+
+.btn-mode {
+    width: 10.0rem;
+}
+
+/* Language toggle button */
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 180px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s ease;
+    width: 6rem;
+}
+
+.lang-toggle:hover {
+    background: var(--border);
+}

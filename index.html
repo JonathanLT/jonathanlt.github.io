@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JonathanLT — Développeur</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <button class="theme-toggle btn-mode" id="theme-toggle" data-fr="Mode sombre" data-en="Dark mode">Mode sombre</button>
+  <button class="lang-toggle" id="lang-toggle">EN 🇬🇧</button>
+  <main class="container">
+    <header>
+      <h1>Jonathan LT</h1>
+      <p class="subtitle" data-fr="Développeur | Ancien étudiant | Futur retraité. J'aime concevoir des projets simples, efficaces et bien structurés." data-en="Developer | Former student | Future retiree. I love designing simple, efficient, and well-structured projects.">Développeur | Ancien étudiant | Futur retraité. J'aime concevoir des projets simples, efficaces et bien structurés.</p>
+    </header>
+    
+    <section>
+      <h2 data-fr="Projets" data-en="Projects">Projets</h2>
+      <div class="projects">
+        <div class="project">
+          <div class="project-content">
+            <h3>Counter TCG</h3>
+            <p data-fr="Application iOS pour suivre les marqueurs de dégâts lorsque je fais de combats de cartes à jouer contre mon fils." data-en="iOS app to track damage counters when playing trading card games with my son.">Application iOS pour suivre les marqueurs de dégâts lorsque je fais de combats de cartes à jouer contre mon fils.</p>
+          </div>
+          <div class="project-footer">
+            <div class="buzz-words">
+              <span class="buzz-word">Swift</span>
+              <span class="buzz-word">iOS</span>
+              <span class="buzz-word" data-fr="Fun familial" data-en="Family fun">Fun familial</span>
+            </div>
+            <a href="https://github.com/JonathanLT/CounterTCG" target="_blank" data-fr="Voir le projet ➜" data-en="View project ➜">Voir le projet ➜</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-content">
+            <h3>Counter SK</h3>
+            <p data-fr="Application iOS pour compter les points et faire des statistiques entre amis lors de nos parties de Skull King." data-en="iOS app to track scores and generate statistics when playing Skull King with friends.">Application iOS pour compter les points et faire des statistiques entre amis lors de nos parties de Skull King.</p>
+          </div>
+          <div class="project-footer">
+            <div class="buzz-words">
+              <span class="buzz-word">Swift</span>
+              <span class="buzz-word">iOS</span>
+              <span class="buzz-word">So much fun</span>
+            </div>
+            <a href="https://github.com/JonathanLT/CounterSK" target="_blank" data-fr="Voir le projet ➜" data-en="View project ➜">Voir le projet ➜</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-content">
+            <h3>WinterCard</h3>
+            <p data-fr="Application web pour effectuer le tirage au sort du secret santa familial." data-en="Web app to manage the family secret santa draw.">Application web pour effectuer le tirage au sort du secret santa familial.</p>
+          </div>
+          <div class="project-footer">
+            <div class="buzz-words">
+              <span class="buzz-word">Rust</span>
+              <span class="buzz-word">Web</span>
+              <span class="buzz-word" data-fr="Magie des fêtes" data-en="Holiday magic">Magie des fêtes</span>
+            </div>
+            <a href="https://github.com/JonathanLT/winter-card" target="_blank" data-fr="Voir le projet ➜" data-en="View project ➜">Voir le projet ➜</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-content">
+            <h3>TaskCLI</h3>
+            <p data-fr="Un gestionnaire de task en ligne de commande." data-en="Command-line task manager.">Un gestionnaire de task en ligne de commande.</p>
+          </div>
+          <div class="project-footer">
+            <div class="buzz-words">
+              <span class="buzz-word">Rust</span>
+              <span class="buzz-word">CLI</span>
+              <span class="buzz-word" data-fr="Apprentissage" data-en="Learning">Apprentissage</span>
+            </div>
+            <a href="https://github.com/JonathanLT/task-cli" target="_blank" data-fr="Voir le projet ➜" data-en="View project ➜">Voir le projet ➜</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="JonathanLT" data-color="#5F7FFF" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+    <footer>
+      <p>
+        © 2026 — <a href="https://github.com/JonathanLT" target="_blank">GitHub / JonathanLT</a>
+      </p>
+    </footer>
+  </main>
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const langButton = document.getElementById('lang-toggle');
+    const body = document.body;
+
+    // Language management
+    const browserLang = navigator.language.split('-')[0];
+    let currentLang = localStorage.getItem('lang') || (browserLang === 'fr' ? 'fr' : 'en');
+
+    function updateLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang;
+      
+      // Update all elements with data-fr and data-en attributes
+      document.querySelectorAll('[data-fr][data-en]').forEach(element => {
+        element.textContent = element.getAttribute(`data-${lang}`);
+      });
+      
+      // Update language toggle button
+      langButton.textContent = lang === 'fr' ? 'EN 🇬🇧' : 'FR 🇫🇷';
+      
+      // Update theme toggle button text
+      updateThemeButtonText();
+    }
+
+    // Theme management
+    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+    function updateThemeButtonText() {
+      const isDark = body.classList.contains('dark-mode');
+      if (currentLang === 'fr') {
+        toggleButton.textContent = isDark ? 'Mode clair' : 'Mode sombre';
+      } else {
+        toggleButton.textContent = isDark ? 'Light mode' : 'Dark mode';
+      }
+    }
+
+    // Apply the current theme
+    if (currentTheme === 'dark') {
+      body.classList.add('dark-mode');
+    }
+
+    // Apply current language
+    updateLanguage(currentLang);
+
+    // Toggle theme on button click
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const theme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('theme', theme);
+      updateThemeButtonText();
+    });
+
+    // Toggle language on button click
+    langButton.addEventListener('click', () => {
+      updateLanguage(currentLang === 'fr' ? 'en' : 'fr');
+    });
+  </script>
+</body>
+</html>
