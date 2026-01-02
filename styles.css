@@ -71,22 +71,26 @@ h2 {
     border: 1px solid var(--border);
     padding: 24px;
     transition: border-color 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
 }
 
 .project:hover {
     border-color: var(--accent);
 }
 
-.project h3 {
+.project-content h3 {
     font-size: 1.1rem;
     margin-bottom: 8px;
     font-weight: 500;
 }
 
-.project p {
+.project-content p {
     font-size: 0.95rem;
     color: var(--muted);
-    margin-bottom: 16px;
+    margin-bottom: 0;
 }
 
 .project a {
@@ -96,10 +100,39 @@ h2 {
     border-bottom: 1px solid var(--text);
 }
 
+.buzz-words {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0;
+    flex-wrap: wrap;
+}
+
+.buzz-word {
+    font-size: 0.8rem;
+    background: var(--border);
+    color: var(--text);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.project-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
 footer {
     margin-top: 120px;
     font-size: 0.9rem;
     color: var(--muted);
+}
+
+footer a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--text);
 }
 
 @media (max-width: 600px) {
