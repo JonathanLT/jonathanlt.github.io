@@ -75,6 +75,7 @@ h2 {
     flex-direction: column;
     justify-content: space-between;
     min-height: 200px;
+    border-radius: 4px;
 }
 
 .project:hover {
